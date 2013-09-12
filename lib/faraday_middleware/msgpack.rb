@@ -5,7 +5,6 @@ module FaradayMiddleware
     # Public: parses response bodies with MessagePack.
     class ParseMsgpack < ResponseMiddleware
       dependency 'msgpack'
-      dependency 'msgpack-jruby'
 
       define_parser do |body|
         if body.empty?
@@ -23,7 +22,6 @@ module FaradayMiddleware
 
       dependency do
         require 'msgpack'
-        require 'msgpack-jruby'
       end
 
       def call(env)
