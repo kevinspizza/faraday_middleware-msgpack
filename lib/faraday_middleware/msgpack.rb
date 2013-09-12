@@ -22,6 +22,7 @@ module FaradayMiddleware
 
       dependency do
         require 'msgpack'
+        require 'msgpack-jruby'
       end
 
       def call(env)
@@ -32,7 +33,7 @@ module FaradayMiddleware
       end
 
       def encode(data)
-        data.to_msgpack
+        MessagePack.pack(data)
       end
 
       def match_content_type(env)
