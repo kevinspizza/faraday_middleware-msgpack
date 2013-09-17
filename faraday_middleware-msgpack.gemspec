@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
   gem.add_dependency 'faraday_middleware', '>= 0.8.0'
-  gem.add_dependency 'msgpack', '>= 0.4.7'
+  gem.add_dependency 'msgpack-jruby', '>= 1.3.2'
   gem.add_development_dependency 'rake', '~> 0.9'
   gem.add_development_dependency 'rspec', '~> 2.6'
 
