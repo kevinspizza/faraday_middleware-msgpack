@@ -18,6 +18,7 @@ module FaradayMiddleware
     # base from FaradayMiddeware::EncodeJson
     class EncodeMsgpack < Faraday::Middleware
       CONTENT_TYPE = 'Content-Type'.freeze
+      ACCEPT_TYPE  = 'Accept'.freeze
       MIME_TYPE    = 'application/x-msgpack'.freeze
 
       dependency do
@@ -38,6 +39,7 @@ module FaradayMiddleware
       def match_content_type(env)
         if process_request?(env)
           env[:request_headers][CONTENT_TYPE] ||= MIME_TYPE
+          env[:request_headers][ACCEPT_TYPE] ||= MIME_TYPE
           yield env[:body] unless env[:body].respond_to?(:to_str)
         end
       end
